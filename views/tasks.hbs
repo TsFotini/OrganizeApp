@@ -1,0 +1,56 @@
+<script type="text/javascript" src="/js/tasks.js"></script>
+<div class="container">
+    <h4 style="color:white">{{fullname}},</h4>
+    <h5 style="color:white">Here are your Tasks...</h5>
+    <br>
+    {{#if tasks}}
+
+    <ul class="collection">
+        {{#each tasks}}
+        <li class="collection-item avatar black" id="item" draggable="true" style="border-bottom: rgb(4, 4, 4);">
+            <div class="flip-box" id="{{_id}}">
+                <div class="flip-box-inner" style="background-color: #080808;">
+                    <div class="flip-box-front" style="background-color: #080808;">
+
+                        <i class=" fa fa-circle" aria-hidden="true"></i>
+                        <h6><b>{{title}}</b></h6>
+                        <p>
+                            {{formatDate createdAt 'MMMM Do YYYY'}}
+                        </p>
+
+
+                    </div>
+                    <div class="flip-box-back">
+                        <h6><b>{{title}}</b></h6>
+                        <br>
+                        <p>
+                            {{body}}
+                        </p>
+                        <a class="secondary-content">
+                            <button class="btn" id="btn-done">
+
+                                <i class="fa fa-paper-plane" aria-hidden="true" id="{{_id}}">
+                                </i>
+                            </button>
+                            <button class="btn red" id="btn-del">
+                                <i class="fa fa-minus-square" aria-hidden="true" id="{{_id}}"></i>
+                            </button>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+
+    {{else}}
+    <center>
+        {{> nodata}}
+    </center>
+    {{/if}}
+
+    {{> addtask}}
+
+</div>

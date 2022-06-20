@@ -1,0 +1,34 @@
+<div class="container">
+    <h4 style="color:white">{{fullname}},</h4>
+    <h5 style="color:white">Here are your Tasks...</h5>
+    <br>
+
+    {{#if dones}}
+    {{> trash }}
+    <div class="container">
+        <ul class="collection" style="background-color:rgb(10 10 12);">
+            {{#each dones}}
+            <li class="collection-item avatar" style="color: #a1a3a3; background-color:rgb(10 10 12);">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <h6><b>{{title}}</b></h6>
+                <p>{{body}}<br>
+                    {{formatDate createdAt 'MMMM Do YYYY'}}
+                </p>
+                <div class="hidden" style="visibility: hidden;">
+                    {{_id}}
+                </div>
+                <a class="secondary-content"><i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+
+    {{else}}
+    <center>
+        {{> nodata}}
+    </center>
+    {{/if}}
+
+</div>

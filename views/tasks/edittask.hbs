@@ -1,0 +1,27 @@
+<div class="container" style="position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+
+    <div class="row">
+        <form action="/tasks/edit/{{task._id}}" method="POST" class="col s12">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" id="title" name="title" value="{{task.title}}" style="color: white;" required>
+                    <label for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <h5>Description</h5>
+                    <textarea id="body" name="body" style="color:white">{{task.body}}</textarea>
+                </div>
+            </div>
+            <center>
+                <div class="row">
+                    <input type="submit" value="Update" class="btn">
+                    <a href="/tasks" class="btn" style="background-color: red;">Cancel</a>
+                </div>
+            </center>
+
+        </form>
+    </div>
+</div>
